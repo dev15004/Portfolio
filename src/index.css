@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-msMadi: "Ms Madi"
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #020617;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}
