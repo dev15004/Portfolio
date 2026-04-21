@@ -3,9 +3,9 @@ import emailjs from '@emailjs/browser'
 import SectionTitle from '../components/SectionTitle'
 import { siteConfig } from '../data/siteContent'
 
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY ?? 'RVT6OiPQ395DR-WLv'
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID ?? 'service_2q18n2a'
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID ?? 'template_dikmftf'
+const PUBLIC_KEY = 'RVT6OiPQ395DR-WLv'
+const SERVICE_ID = 'service_2q18n2a'
+const TEMPLATE_ID = 'template_dikmftf'
 
 const initialForm = {
   name: '',
