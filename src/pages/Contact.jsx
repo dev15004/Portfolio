@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import SectionTitle from '../components/SectionTitle'
 import { siteConfig } from '../data/siteContent'
 
@@ -24,8 +25,8 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
-    if (window.emailjs && PUBLIC_KEY) {
-      window.emailjs.init(PUBLIC_KEY)
+    if (PUBLIC_KEY) {
+      emailjs.init(PUBLIC_KEY)
     }
   }, [])
 
@@ -43,7 +44,7 @@ const Contact = () => {
     setIsSubmitting(true)
     setStatus({ type: '', message: '' })
 
-    if (!window.emailjs || !formRef.current || !PUBLIC_KEY || !SERVICE_ID || !TEMPLATE_ID) {
+    if (!formRef.current || !PUBLIC_KEY || !SERVICE_ID || !TEMPLATE_ID) {
       setStatus({
         type: 'error',
         message: 'EmailJS is not configured yet.',
@@ -53,7 +54,7 @@ const Contact = () => {
     }
 
     try {
-      await window.emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current)
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current)
       setStatus({
         type: 'success',
         message: 'Message sent successfully.',
@@ -73,7 +74,7 @@ const Contact = () => {
     <section className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-14 text-slate-100 md:px-10">
       <SectionTitle
         eyebrow="Contact"
-        title="Let&apos;s discuss your next website or frontend improvement"
+        title="Let's discuss your next website or frontend improvement"
         description="Share a few project details and tell me what you want to build, improve, or fix."
       />
       <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
